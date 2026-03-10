@@ -1,0 +1,196 @@
+/* Import a cleaner, more 'space-age' font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #8da9ff;
+    --accent: #c299ff;
+    --bg: #0a0b1e;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+/* 1. STARFIELD BACKGROUND SETUP */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: #050510;
+    /* Add these two lines to force it to ignore parents */
+    display: block;
+    pointer-events: none; 
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: white;
+    font-family: 'Inter', sans-serif; /* Cleaner body font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    width:100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif; /* Space-themed title */
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(141, 169, 255, 0.5);
+}
+
+/* 2. MUTE TOGGLE STYLING */
+.audio-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#mute-btn {
+    background: var(--glass);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#mute-btn:hover {
+    background: var(--primary);
+    color: #000;
+}
+
+#mute-btn.muted {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 2.5rem;
+    text-align: center;
+    width: 90%; /* Responsive width */
+    max-width: 400px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+/* Custom Scrollbar for the Select Dropdown */
+.glass-select::-webkit-scrollbar {
+    width: 5px;
+}
+.glass-select::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.glass-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 12px;
+    width: 85%;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.glass-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(141, 169, 255, 0.3);
+}
+
+/* Perfect Circle Camera */
+.camera-container {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(141, 169, 255, 0.2);
+    background: #000;
+    transition: box-shadow 1s ease;
+}
+
+/* 3. IMPROVED SCAN LINE */
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Gradient scan looks better than a flat line */
+    background: linear-gradient(to bottom, 
+                transparent 45%, 
+                var(--primary) 50%, 
+                transparent 55%);
+    z-index: 10;
+    opacity: 0.6;
+    animation: scanMove 3s ease-in-out infinite;
+}
+
+/* Text Wrap Fix */
+.typewriter-text {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #f0f0f0;
+    min-height: 100px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* 4. REFINED BUTTONS */
+button { 
+    padding: 12px 24px; 
+    border-radius: 50px; /* Pill shape is more modern */
+    border: none; 
+    cursor: pointer; 
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+}
+
+.btn-secondary:hover {
+    border-color: white;
+    background: rgba(255,255,255,0.05);
+}
+
+@keyframes cosmicPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0px 0px rgba(141, 169, 255, 0.7); }
+    50% { transform: scale(1.02); } /* Slight swell effect */
+    70% { box-shadow: 0 0 20px 15px rgba(141, 169, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0px 0px rgba(141, 169, 255, 0); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .glass-card { padding: 1.5rem; width: 85%; }
+    .camera-container { width: 180px; height: 180px; }
+    h1 { font-size: 1.5rem; }
+}

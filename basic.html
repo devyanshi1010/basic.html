@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul & Stars | Face Oracle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="starfield"></canvas>
+
+    <div class="main-content">
+        <div class="audio-control">
+            <button id="mute-btn" onclick="toggleMute()">🔊 SOUND ON</button>
+        </div>
+
+        <header>
+            <h1>SOUL & STARS</h1>
+            <p class="subtitle">Decoding your destiny through the cosmic lens.</p>
+        </header>
+
+        <div class="glass-card">
+            <div class="input-group">
+                <label for="zodiac-select">SELECT YOUR STAR SIGN</label>
+                <select id="zodiac-select" class="glass-select">
+                    <option value="Aries">Aries</option>
+                    <option value="Taurus">Taurus</option>
+                    <option value="Gemini">Gemini</option>
+                    <option value="Cancer">Cancer</option>
+                    <option value="Leo">Leo</option>
+                    <option value="Virgo">Virgo</option>
+                    <option value="Libra">Libra</option>
+                    <option value="Scorpio">Scorpio</option>
+                    <option value="Sagittarius">Sagittarius</option>
+                    <option value="Capricorn">Capricorn</option>
+                    <option value="Aquarius">Aquarius</option>
+                    <option value="Pisces">Pisces</option>
+                </select>
+            </div>
+
+            <div class="camera-container">
+                <div id="scanner" class="scan-line" style="display: none;"></div>
+                <video id="camera" autoplay playsinline></video>
+            </div>
+
+            <div id="status-text">SYSTEM OFFLINE</div>
+
+            <div id="loading-container" style="display:none;">
+                <div class="percentage" id="percent-count">0%</div>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-secondary" onclick="openCamera()">INITIALIZE SENSORS</button>
+                <button class="btn-primary" onclick="startAnalysis()">BEGIN ANALYSIS</button>
+            </div>
+
+            <div id="reading-output" class="typewriter-text"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
