@@ -113,7 +113,13 @@ h1 {
 
 .glass-select:focus {
     border-color: var(--primary);
+    outline: none;
     box-shadow: 0 0 10px rgba(141, 169, 255, 0.3);
+}
+
+.glass-select option {
+    background-color: #0a0b1e; 
+    color: #ffffff;            
 }
 
 /* Perfect Circle Camera */
@@ -193,4 +199,5 @@ button {
     .glass-card { padding: 1.5rem; width: 85%; }
     .camera-container { width: 180px; height: 180px; }
     h1 { font-size: 1.5rem; }
+
 }
